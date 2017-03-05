@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import GameKit
 
 protocol HistoricalEvent {
     var date: Date { get }
@@ -23,6 +23,7 @@ protocol HistoricalGame {
     
     init(eventCollection: [HistoricalEvent])
     
+    func stageEvents(amount: Int) -> [HistoricalEvent]
     func nextRound(currentRound: Int)
     func endGame()
     func checkAnswer()
@@ -61,23 +62,19 @@ class CollectionUnarchiver {
         var collection: [HistoricalEvent] = []
         
         for dictionary in array {
-            
-            for (key, value) in dictionary {
-                if  let eventCollection = value as? [String: Any],
-                    let date = eventCollection["date"] as? Date,
-                    let statement = eventCollection["statement"] as? String,
-                    let placement = eventCollection["placement"] as? Int {
-                    
+                if  let date = dictionary["date"] as? Date,
+                    let statement = dictionary["statement"] as? String,
+                    let placement = dictionary["placement"] as? Int {
                         let event = Event(date: date, statement: statement, placement: placement)
                         collection.append(event)
+                    } else {
+                        print("failed")
                     }
-            }
-        
+            
         }
         return collection
-    }
 }
-
+}
 
 
 class GameTopic: HistoricalGame {
@@ -89,6 +86,24 @@ class GameTopic: HistoricalGame {
     required init(eventCollection: [HistoricalEvent]) {
         self.eventCollection = eventCollection
     }
+    
+    
+    
+    func stageEvents(amount: Int) -> [HistoricalEvent] {
+        var stagedEvents: [HistoricalEvent] = []
+        var randomNumbersUsed: [Int] = []
+        
+        while stagedEvents.count < amount {
+            let randomNumber = GKRandomSource.sharedRandom().nextInt(upperBound: eventCollection.count)
+            if randomNumbersUsed.contains(randomNumber) != true {
+                stagedEvents.append(eventCollection[randomNumber])
+                randomNumbersUsed.append(randomNumber)
+            }
+        
+        }
+        return stagedEvents
+    }
+    
     
     func nextRound(currentRound: Int) {}
     func endGame() {}

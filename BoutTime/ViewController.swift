@@ -22,6 +22,12 @@ class ViewController: UIViewController {
     @IBOutlet weak var fourthEventUp: UIButton!
     
     
+    @IBOutlet weak var topLabel: UILabel!
+    @IBOutlet weak var upperMiddleLabel: UILabel!
+    @IBOutlet weak var underMiddleLabel: UILabel!
+    @IBOutlet weak var bottomLabel: UILabel!
+    
+    
     let gameTopic: GameTopic
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,10 +42,23 @@ class ViewController: UIViewController {
         super.init(coder: aDecoder)
         
     }
+    
+    func displayStagedEvents() {
+        let events = gameTopic.stageEvents(amount: 4)
+        
+        topLabel.text = events[0].statement
+        upperMiddleLabel.text = events[1].statement
+        underMiddleLabel.text = events[2].statement
+        bottomLabel.text = events[3].statement
+
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
-        print(gameTopic.eventCollection)
+        displayStagedEvents()
     }
 
     override func didReceiveMemoryWarning() {

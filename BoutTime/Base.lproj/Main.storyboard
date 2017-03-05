@@ -220,12 +220,16 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bottomLabel" destination="v84-ea-3dg" id="p6J-jK-f64"/>
                         <outlet property="firstEventDown" destination="Pbk-4t-co4" id="npk-LF-aYc"/>
                         <outlet property="fourthEventUp" destination="cFf-IW-pPR" id="e4R-zf-XH6"/>
                         <outlet property="secondEventDown" destination="P1b-MG-vl0" id="wTp-92-RbE"/>
                         <outlet property="secondEventUp" destination="epZ-yO-zj4" id="4UK-7f-shs"/>
                         <outlet property="thirdEventDown" destination="BfH-Dg-heA" id="Gik-t1-mTH"/>
                         <outlet property="thirdEventUp" destination="D1b-CF-5Kf" id="71C-aL-3e0"/>
+                        <outlet property="topLabel" destination="vGm-fq-JcU" id="VWh-dg-a38"/>
+                        <outlet property="underMiddleLabel" destination="1oV-Zh-Oop" id="8aG-sc-1QQ"/>
+                        <outlet property="upperMiddleLabel" destination="ONq-PA-fzS" id="YVV-yf-vyn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

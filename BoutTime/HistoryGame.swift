@@ -54,7 +54,7 @@ class PlistImporter {
 }
 
 
-class EventColelctionUnarchiver {
+class EventCollectionUnarchiver {
     static func eventCollection(fromArray array: [[String: AnyObject]]) throws -> [HistoricalEvent] {
         
         var collection: [HistoricalEvent] = []

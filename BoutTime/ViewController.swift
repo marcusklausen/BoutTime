@@ -28,9 +28,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         do {
-            let plist = try PlistImporter.importDictionaries(fromFile: "EventCollection", ofType: ".plist")
-            let foo = try EventColelctionUnarchiver.eventCollection(fromArray: plist)
-            print(foo)
+            let arrayOfDictionaries = try PlistImporter.importDictionaries(fromFile: "EventCollection", ofType: ".plist")
+            let collection = try EventCollectionUnarchiver.eventCollection(fromArray: arrayOfDictionaries)
+            print(collection)
             
         } catch PlistImportError.invalidResource {
             print("Invalid resource")

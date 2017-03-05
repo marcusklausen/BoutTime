@@ -27,6 +27,20 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        do {
+            let plist = try PlistImporter.importDictionaries(fromFile: "EventCollection", ofType: ".plist")
+            let foo = try EventColelctionUnarchiver.eventCollection(fromArray: plist)
+            print(foo)
+            
+        } catch PlistImportError.invalidResource {
+            print("Invalid resource")
+        } catch PlistImportError.conversionFailure {
+            print("Converision failure")
+            
+        } catch  {
+            
+        }
+        
     }
 
     override func didReceiveMemoryWarning() {

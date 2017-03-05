@@ -35,36 +35,44 @@ struct Event: HistoricalEvent {
     var placement: Int
 }
 
-enum EventCollectionError: Error {
+enum PlistImportError: Error {
     case invalidResource
     case conversionFailure
     case invalidSelection
 }
 
-class PlistConverter {
-    static func dictionary(fromFile name: String, ofType type: String) throws -> [String: AnyObject] {
+class PlistImporter {
+    static func importDictionaries(fromFile name: String, ofType type: String) throws -> [[String: AnyObject]] {
         guard let path = Bundle.main.path(forResource: name, ofType: type) else {
-            throw EventCollectionError.invalidResource
+            throw PlistImportError.invalidResource
         }
-        
-        guard let array = NSDictionary(contentsOfFile: path) as? [String: AnyObject] else {
-            throw EventCollectionError.conversionFailure
+        guard let arrayOfDictionaries = NSArray.init(contentsOfFile: path) as? [[String: AnyObject]] else {
+            throw PlistImportError.conversionFailure
         }
-        
-        return array
-        
+        return arrayOfDictionaries
     }
 }
 
 
-class EventCollectionUnarchiver {
-    static func eventCollection(fromArray array: [String: AnyObject]) throws -> [HistoricalEvent] {
+class EventColelctionUnarchiver {
+    static func eventCollection(fromArray array: [[String: AnyObject]]) throws -> [HistoricalEvent] {
+        
         var collection: [HistoricalEvent] = []
         
-        for (key, value) in collection {
-            if  let eventCollection = value as? [String: Any],
-                let date = evenCollection["]
+        for dictionary in array {
+            
+            for (_, value) in dictionary {
+                if  let eventCollection = value as? [String: Any],
+                    let date = eventCollection["date"] as? Date,
+                    let statement = eventCollection["statement"] as? String,
+                    let placement = eventCollection["placement"] as? Int {
+                    
+                        let event = Event(date: date, statement: statement, placement: placement)
+                        collection.append(event)
+                    }
+            }
         }
+        return collection
     }
 }
 

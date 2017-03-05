@@ -22,25 +22,24 @@ class ViewController: UIViewController {
     @IBOutlet weak var fourthEventUp: UIButton!
     
     
+    let gameTopic: GameTopic
     
-    
+    required init?(coder aDecoder: NSCoder) {
+        do {
+            let arrayOfDictionaries = try PlistImporter.importDictionaries(fromFile: "EventCollection", ofType: "plist")
+            let collection = try CollectionUnarchiver.collection(fromArray: arrayOfDictionaries)
+            self.gameTopic = GameTopic(eventCollection: collection)
+            
+        } catch let error {
+            fatalError("\(error)")
+        }
+        super.init(coder: aDecoder)
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        do {
-            let arrayOfDictionaries = try PlistImporter.importDictionaries(fromFile: "EventCollection", ofType: ".plist")
-            let collection = try EventCollectionUnarchiver.eventCollection(fromArray: arrayOfDictionaries)
-            print(collection)
-            
-        } catch PlistImportError.invalidResource {
-            print("Invalid resource")
-        } catch PlistImportError.conversionFailure {
-            print("Converision failure")
-            
-        } catch  {
-            
-        }
-        
+        print(gameTopic.eventCollection)
     }
 
     override func didReceiveMemoryWarning() {

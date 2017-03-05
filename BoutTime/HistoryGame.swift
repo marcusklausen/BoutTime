@@ -54,14 +54,15 @@ class PlistImporter {
 }
 
 
-class EventCollectionUnarchiver {
-    static func eventCollection(fromArray array: [[String: AnyObject]]) throws -> [HistoricalEvent] {
+
+class CollectionUnarchiver {
+    static func collection(fromArray array: [[String: AnyObject]]) throws -> [HistoricalEvent] {
         
         var collection: [HistoricalEvent] = []
         
         for dictionary in array {
             
-            for (_, value) in dictionary {
+            for (key, value) in dictionary {
                 if  let eventCollection = value as? [String: Any],
                     let date = eventCollection["date"] as? Date,
                     let statement = eventCollection["statement"] as? String,
@@ -71,6 +72,7 @@ class EventCollectionUnarchiver {
                         collection.append(event)
                     }
             }
+        
         }
         return collection
     }
@@ -79,7 +81,7 @@ class EventCollectionUnarchiver {
 
 
 class GameTopic: HistoricalGame {
-    var eventCollection: [HistoricalEvent] = []
+    var eventCollection: [HistoricalEvent]
     var roundsPlayed: Int = 0
     let numberOfRounds: Int = 6
     var timer: Int = 60

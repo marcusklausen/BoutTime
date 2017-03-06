@@ -9,10 +9,17 @@
 import Foundation
 import GameKit
 
+enum eventPosition: Int {
+    case first = 1
+    case second = 2
+    case third = 3
+    case fourth = 4
+}
+
 protocol HistoricalEvent {
     var date: Date { get }
     var statement: String { get }
-    var placement: Int { get set }
+    var placement: eventPosition { get set }
 }
 
 protocol HistoricalGame {
@@ -23,7 +30,7 @@ protocol HistoricalGame {
     
     init(eventCollection: [HistoricalEvent])
     
-    func stageEvents(amount: Int) -> [HistoricalEvent]
+    func pickRandomEvents(amount: Int) -> [HistoricalEvent]
     func nextRound(currentRound: Int)
     func endGame()
     func checkAnswer()
@@ -33,7 +40,7 @@ protocol HistoricalGame {
 struct Event: HistoricalEvent {
     let date: Date
     let statement: String
-    var placement: Int
+    var placement: eventPosition
 }
 
 enum PlistImportError: Error {
@@ -63,9 +70,8 @@ class CollectionUnarchiver {
         
         for dictionary in array {
                 if  let date = dictionary["date"] as? Date,
-                    let statement = dictionary["statement"] as? String,
-                    let placement = dictionary["placement"] as? Int {
-                        let event = Event(date: date, statement: statement, placement: placement)
+                    let statement = dictionary["statement"] as? String {
+                        let event = Event(date: date, statement: statement, placement: eventPosition.first)
                         collection.append(event)
                     } else {
                         print("failed")
@@ -75,6 +81,8 @@ class CollectionUnarchiver {
         return collection
 }
 }
+
+
 
 
 class GameTopic: HistoricalGame {
@@ -89,7 +97,7 @@ class GameTopic: HistoricalGame {
     
     
     
-    func stageEvents(amount: Int) -> [HistoricalEvent] {
+    func pickRandomEvents(amount: Int) -> [HistoricalEvent] {
         var stagedEvents: [HistoricalEvent] = []
         var randomNumbersUsed: [Int] = []
         
@@ -103,6 +111,8 @@ class GameTopic: HistoricalGame {
         }
         return stagedEvents
     }
+    
+    
     
     
     func nextRound(currentRound: Int) {}

@@ -12,13 +12,10 @@ class ViewController: UIViewController {
    
     
     @IBOutlet weak var firstEventDown: UIButton!
-    
     @IBOutlet weak var secondEventUp: UIButton!
     @IBOutlet weak var secondEventDown: UIButton!
-    
     @IBOutlet weak var thirdEventUp: UIButton!
     @IBOutlet weak var thirdEventDown: UIButton!
-    
     @IBOutlet weak var fourthEventUp: UIButton!
     
     
@@ -26,6 +23,19 @@ class ViewController: UIViewController {
     @IBOutlet weak var upperMiddleLabel: UILabel!
     @IBOutlet weak var underMiddleLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
+    
+    
+    @IBAction func moveBottomEventUp(_ sender: Any) {
+        
+       
+        updateLabels()
+        
+        
+        
+        
+        
+    }
+    
     
     
     let gameTopic: GameTopic
@@ -43,14 +53,27 @@ class ViewController: UIViewController {
         
     }
     
-    func displayStagedEvents() {
-        let events = gameTopic.stageEvents(amount: 4)
-        
-        topLabel.text = events[0].statement
-        upperMiddleLabel.text = events[1].statement
-        underMiddleLabel.text = events[2].statement
-        bottomLabel.text = events[3].statement
-
+    
+    // Place the correct event at the correct label
+    func updateLabels() {
+        for event in events {
+            switch event.placement {
+            case .first:    topLabel.text           = event.statement; print(event.statement)
+            case .second:   upperMiddleLabel.text   = event.statement; print(event.statement)
+            case .third:    underMiddleLabel.text   = event.statement; print(event.statement)
+            case .fourth:   bottomLabel.text        = event.statement
+            }
+            
+        }
+    }
+    
+    var events: [HistoricalEvent] = []
+    func initiateEvents() {
+        events = gameTopic.pickRandomEvents(amount: 4)
+        events[0].placement = .first
+        events[1].placement = .second
+        events[2].placement = .third
+        events[3].placement = .fourth
         
     }
     
@@ -58,7 +81,16 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view, typically from a nib.
-        displayStagedEvents()
+        
+        firstEventDown.setImage(#imageLiteral(resourceName: "down_full_selected"), for: UIControlState.highlighted)
+        secondEventUp.setImage(#imageLiteral(resourceName: "up_half_selected.png"), for: UIControlState.highlighted)
+        secondEventDown.setImage(#imageLiteral(resourceName: "down_half_selected.png"), for: UIControlState.highlighted)
+        thirdEventUp.setImage(#imageLiteral(resourceName: "up_half_selected.png"), for: UIControlState.highlighted)
+        thirdEventDown.setImage(#imageLiteral(resourceName: "down_half_selected.png"), for: UIControlState.highlighted)
+        fourthEventUp.setImage(#imageLiteral(resourceName: "up_full_selected.png"), for: UIControlState.highlighted)
+        
+        initiateEvents()
+        updateLabels()
     }
 
     override func didReceiveMemoryWarning() {

@@ -33,10 +33,12 @@ class ViewController: UIViewController {
         eventTwo = tempEventThree
         eventThree = tempEventTwo
         updateLabels()
+        buttonPressedSound()
     }
     
     @IBAction func moveUpperMiddleUp(_ sender: Any) {
         moveTopDown(Any.self)
+        buttonPressedSound()
     }
     
     @IBAction func moveTopDown(_ sender: Any) {
@@ -45,10 +47,12 @@ class ViewController: UIViewController {
         eventOne = tempEventTwo
         eventTwo = tempEventOne
         updateLabels()
+        buttonPressedSound()
     }
     
     @IBAction func moveLowerMiddleDown(_ sender: Any) {
         moveBottomEventUp(Any.self)
+        buttonPressedSound()
     }
     
     
@@ -58,6 +62,7 @@ class ViewController: UIViewController {
         eventFour = tempEventThree
         eventThree = tempEventFour
         updateLabels()
+        buttonPressedSound()
     }
     
     
@@ -106,6 +111,7 @@ class ViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         
+        loadButtonPressedSound()
         firstEventDown.setImage(#imageLiteral(resourceName: "down_full_selected"), for: UIControlState.highlighted)
         secondEventUp.setImage(#imageLiteral(resourceName: "up_half_selected.png"), for: UIControlState.highlighted)
         secondEventDown.setImage(#imageLiteral(resourceName: "down_half_selected.png"), for: UIControlState.highlighted)

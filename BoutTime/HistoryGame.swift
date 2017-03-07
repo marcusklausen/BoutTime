@@ -8,6 +8,10 @@
 
 import Foundation
 import GameKit
+import AudioToolbox
+
+// Initializing sounds
+var button: SystemSoundID = 0
 
 enum eventPosition: Int {
     case first = 1
@@ -120,4 +124,14 @@ class GameTopic: HistoricalGame {
     func endGame() {}
     func checkAnswer() {}
     
+}
+
+func loadButtonPressedSound() {
+    let pathToSoundFile = Bundle.main.path(forResource: "button-3", ofType: "wav")
+    let soundURL = URL(fileURLWithPath: pathToSoundFile!)
+    AudioServicesCreateSystemSoundID(soundURL as CFURL, &button)
+}
+
+func buttonPressedSound() {
+    AudioServicesPlaySystemSound(button)
 }

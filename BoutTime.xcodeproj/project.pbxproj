@@ -14,6 +14,7 @@
 		2C10E2381E6C17FE00A2EFB9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C10E2361E6C17FE00A2EFB9 /* LaunchScreen.storyboard */; };
 		2C10E2401E6C2A1200A2EFB9 /* HistoryGame.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C10E23F1E6C2A1200A2EFB9 /* HistoryGame.swift */; };
 		2CA6845A1E6C359C0035A316 /* EventCollection.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA684591E6C359C0035A316 /* EventCollection.plist */; };
+		2CB1367E1E6F5397006E4021 /* button-3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2CB1367D1E6F5397006E4021 /* button-3.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		2C10E2391E6C17FE00A2EFB9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C10E23F1E6C2A1200A2EFB9 /* HistoryGame.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryGame.swift; sourceTree = "<group>"; };
 		2CA684591E6C359C0035A316 /* EventCollection.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = EventCollection.plist; path = ../EventCollection.plist; sourceTree = "<group>"; };
+		2CB1367D1E6F5397006E4021 /* button-3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = "button-3.wav"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 				2C10E2341E6C17FE00A2EFB9 /* Assets.xcassets */,
 				2C10E2361E6C17FE00A2EFB9 /* LaunchScreen.storyboard */,
 				2C10E2391E6C17FE00A2EFB9 /* Info.plist */,
+				2CB1367D1E6F5397006E4021 /* button-3.wav */,
 				2CA684591E6C359C0035A316 /* EventCollection.plist */,
 			);
 			path = BoutTime;
@@ -134,6 +137,7 @@
 				2C10E2351E6C17FE00A2EFB9 /* Assets.xcassets in Resources */,
 				2C10E2331E6C17FE00A2EFB9 /* Main.storyboard in Resources */,
 				2CA6845A1E6C359C0035A316 /* EventCollection.plist in Resources */,
+				2CB1367E1E6F5397006E4021 /* button-3.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

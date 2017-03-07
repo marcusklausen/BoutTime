@@ -29,7 +29,10 @@ class ViewController: UIViewController {
     
         for var event in events {
             if event.placement == .fourth {
-                event.placement = .third
+                eventFour?.placement = .third
+            }
+            if event.placement == .third {
+                eventFour?.placement = .fourth
             }
             
             
@@ -74,15 +77,17 @@ class ViewController: UIViewController {
     }
     
     var events: [HistoricalEvent] = []
+    var eventOne: HistoricalEvent?
+    var eventTwo: HistoricalEvent?
+    var eventThree: HistoricalEvent?
+    var eventFour: HistoricalEvent?
+    
     func initiateEvents() {
         events = gameTopic.pickRandomEvents(amount: 4)
-        
-        
-        events[0].placement = .first
-        events[1].placement = .second
-        events[2].placement = .third
-        events[3].placement = .fourth
-        
+        eventOne = events[0]
+        eventTwo = events[1]
+        eventThree = events[2]
+        eventFour = events[3]
     }
     
     override func viewDidLoad() {

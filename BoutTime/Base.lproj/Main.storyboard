@@ -22,6 +22,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffQ-CA-wpf">
+                                <rect key="frame" x="16" y="37" width="343" height="105"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbk-4t-co4">
+                                        <rect key="frame" x="303" y="0.0" width="40" height="105"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="jJG-b6-azc"/>
+                                        </constraints>
+                                        <state key="normal" title="Button" image="down_full"/>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This historical event is a placeholder" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGm-fq-JcU">
+                                        <rect key="frame" x="20" y="20" width="263" height="65"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <color key="textColor" red="0.010066603310406208" green="0.3665296733379364" blue="0.48767608404159546" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="adw-oY-s7X">
+                                        <rect key="frame" x="-9" y="-9" width="29" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0040438044816255569" green="0.12624138593673706" blue="0.23077630996704102" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Pbk-4t-co4" secondAttribute="trailing" id="7zT-wk-ZtU"/>
+                                    <constraint firstAttribute="bottom" secondItem="Pbk-4t-co4" secondAttribute="bottom" id="E24-qU-Jz7"/>
+                                    <constraint firstAttribute="height" constant="105" id="Vko-C2-V9B"/>
+                                    <constraint firstItem="Pbk-4t-co4" firstAttribute="top" secondItem="ffQ-CA-wpf" secondAttribute="top" id="eD4-7t-uPJ"/>
+                                    <constraint firstItem="vGm-fq-JcU" firstAttribute="leading" secondItem="ffQ-CA-wpf" secondAttribute="leading" constant="20" id="ffb-0A-9ob"/>
+                                    <constraint firstAttribute="bottom" secondItem="vGm-fq-JcU" secondAttribute="bottom" constant="20" id="mnJ-9D-Xbg"/>
+                                    <constraint firstItem="vGm-fq-JcU" firstAttribute="top" secondItem="ffQ-CA-wpf" secondAttribute="top" constant="20" id="vaV-9h-Lju"/>
+                                    <constraint firstItem="Pbk-4t-co4" firstAttribute="leading" secondItem="vGm-fq-JcU" secondAttribute="trailing" constant="20" id="wwf-WP-PfJ"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="py4-nx-bJ7">
                                 <rect key="frame" x="100" y="517" width="175" height="65"/>
                                 <constraints>
@@ -158,40 +197,6 @@
                                     <constraint firstItem="cFf-IW-pPR" firstAttribute="leading" secondItem="v84-ea-3dg" secondAttribute="trailing" constant="20" id="HGP-2F-JhD"/>
                                     <constraint firstAttribute="height" constant="105" id="wS9-RK-nuV"/>
                                     <constraint firstAttribute="trailing" secondItem="cFf-IW-pPR" secondAttribute="trailing" id="yl4-eY-ppP"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="3"/>
-                                    </userDefinedRuntimeAttribute>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ffQ-CA-wpf">
-                                <rect key="frame" x="16" y="37" width="343" height="105"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pbk-4t-co4">
-                                        <rect key="frame" x="303" y="0.0" width="40" height="105"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="jJG-b6-azc"/>
-                                        </constraints>
-                                        <state key="normal" title="Button" image="down_full"/>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This historical event is a placeholder" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGm-fq-JcU">
-                                        <rect key="frame" x="20" y="20" width="263" height="65"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <color key="textColor" red="0.010066603310406208" green="0.3665296733379364" blue="0.48767608404159546" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="Pbk-4t-co4" secondAttribute="trailing" id="7zT-wk-ZtU"/>
-                                    <constraint firstAttribute="bottom" secondItem="Pbk-4t-co4" secondAttribute="bottom" id="E24-qU-Jz7"/>
-                                    <constraint firstAttribute="height" constant="105" id="Vko-C2-V9B"/>
-                                    <constraint firstItem="Pbk-4t-co4" firstAttribute="top" secondItem="ffQ-CA-wpf" secondAttribute="top" id="eD4-7t-uPJ"/>
-                                    <constraint firstItem="vGm-fq-JcU" firstAttribute="leading" secondItem="ffQ-CA-wpf" secondAttribute="leading" constant="20" id="ffb-0A-9ob"/>
-                                    <constraint firstAttribute="bottom" secondItem="vGm-fq-JcU" secondAttribute="bottom" constant="20" id="mnJ-9D-Xbg"/>
-                                    <constraint firstItem="vGm-fq-JcU" firstAttribute="top" secondItem="ffQ-CA-wpf" secondAttribute="top" constant="20" id="vaV-9h-Lju"/>
-                                    <constraint firstItem="Pbk-4t-co4" firstAttribute="leading" secondItem="vGm-fq-JcU" secondAttribute="trailing" constant="20" id="wwf-WP-PfJ"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">

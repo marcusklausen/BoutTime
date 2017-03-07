@@ -27,16 +27,11 @@ class ViewController: UIViewController {
     
     @IBAction func moveBottomEventUp(_ sender: Any) {
     
-        for var event in events {
-            if event.placement == .fourth {
-                eventFour?.placement = .third
-            }
-            if event.placement == .third {
-                eventFour?.placement = .fourth
-            }
-            
-            
-        }
+        let tempEventFour = eventFour
+        let tempEventThree = eventThree
+        
+        eventFour = tempEventThree
+        eventThree = tempEventFour
         
         updateLabels()
         
@@ -63,18 +58,14 @@ class ViewController: UIViewController {
     }
     
     
-    // Place the correct event at the correct label
-    func updateLabels() {
-        for event in events {
-            switch event.placement {
-            case .first:    topLabel.text           = event.statement; print(event.statement)
-            case .second:   upperMiddleLabel.text   = event.statement; print(event.statement)
-            case .third:    underMiddleLabel.text   = event.statement; print(event.statement)
-            case .fourth:   bottomLabel.text        = event.statement
-            }
+    //Place the correct event at the correct label
+        func updateLabels() {
             
-        }
-    }
+            topLabel.text = eventOne?.statement
+            upperMiddleLabel.text = eventTwo?.statement
+            underMiddleLabel.text = eventThree?.statement
+            bottomLabel.text = eventFour?.statement
+  }
     
     var events: [HistoricalEvent] = []
     var eventOne: HistoricalEvent?

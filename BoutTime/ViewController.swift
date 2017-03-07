@@ -27,8 +27,7 @@ class ViewController: UIViewController {
     
     @IBAction func moveBottomEventUp(_ sender: Any) {
         
-       for event in events 
-        updateLabels()
+
         
         
         

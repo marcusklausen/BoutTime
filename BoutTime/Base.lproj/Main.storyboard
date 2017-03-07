@@ -31,6 +31,9 @@
                                             <constraint firstAttribute="width" constant="40" id="jJG-b6-azc"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="down_full"/>
+                                        <connections>
+                                            <action selector="moveTopDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bKA-qB-6hC"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This historical event is a placeholder" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vGm-fq-JcU">
                                         <rect key="frame" x="20" y="20" width="263" height="65"/>
@@ -89,6 +92,9 @@
                                             <constraint firstAttribute="width" constant="40" id="jlO-Am-WGs"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="down_half"/>
+                                        <connections>
+                                            <action selector="moveUpperMiddleDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GvJ-aM-IYY"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="epZ-yO-zj4">
                                         <rect key="frame" x="303" y="0.0" width="40" height="55"/>
@@ -96,6 +102,9 @@
                                             <constraint firstAttribute="width" constant="40" id="QzL-xR-K3q"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="up_half"/>
+                                        <connections>
+                                            <action selector="moveUpperMiddleUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vz0-kh-Vb3"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This historical event is a placeholder" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ONq-PA-fzS">
                                         <rect key="frame" x="20" y="20" width="263" height="65"/>
@@ -133,6 +142,9 @@
                                             <constraint firstAttribute="height" constant="50" id="m1l-jy-Tuj"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="down_half"/>
+                                        <connections>
+                                            <action selector="moveLowerMiddleDown:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sSl-gA-pVw"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D1b-CF-5Kf">
                                         <rect key="frame" x="303" y="0.0" width="40" height="55"/>
@@ -140,6 +152,9 @@
                                             <constraint firstAttribute="width" constant="40" id="xUx-H7-bjQ"/>
                                         </constraints>
                                         <state key="normal" title="Button" image="up_half"/>
+                                        <connections>
+                                            <action selector="moveLowerMiddleUp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V7b-xw-79b"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This historical event is a placeholder" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1oV-Zh-Oop">
                                         <rect key="frame" x="20" y="20" width="263" height="65"/>

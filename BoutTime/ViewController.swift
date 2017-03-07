@@ -24,20 +24,40 @@ class ViewController: UIViewController {
     @IBOutlet weak var underMiddleLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     
+    @IBAction func moveLowerMiddleUp(_ sender: Any) {
+        moveUpperMiddleDown(Any.self)
+    }
+    @IBAction func moveUpperMiddleDown(_ sender: Any) {
+        let tempEventTwo = eventTwo
+        let tempEventThree = eventThree
+        eventTwo = tempEventThree
+        eventThree = tempEventTwo
+        updateLabels()
+    }
+    
+    @IBAction func moveUpperMiddleUp(_ sender: Any) {
+        moveTopDown(Any.self)
+    }
+    
+    @IBAction func moveTopDown(_ sender: Any) {
+        let tempEventOne = eventOne
+        let tempEventTwo = eventTwo
+        eventOne = tempEventTwo
+        eventTwo = tempEventOne
+        updateLabels()
+    }
+    
+    @IBAction func moveLowerMiddleDown(_ sender: Any) {
+        moveBottomEventUp(Any.self)
+    }
+    
     
     @IBAction func moveBottomEventUp(_ sender: Any) {
-    
         let tempEventFour = eventFour
         let tempEventThree = eventThree
-        
         eventFour = tempEventThree
         eventThree = tempEventFour
-        
         updateLabels()
-        
-        
-        
-        
     }
     
     

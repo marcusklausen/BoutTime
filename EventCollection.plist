@@ -3,64 +3,48 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>placement</key>
-		<integer>0</integer>
 		<key>date</key>
 		<date>1546-01-01T12:22:56Z</date>
 		<key>statement</key>
 		<string>Christian 4. kroning</string>
 	</dict>
 	<dict>
-		<key>placement</key>
-		<integer>0</integer>
 		<key>date</key>
 		<date>1945-01-01T12:22:56Z</date>
 		<key>statement</key>
 		<string>Danmarks befrielse</string>
 	</dict>
 	<dict>
-		<key>placement</key>
-		<integer>0</integer>
 		<key>date</key>
 		<date>1998-01-01T12:22:56Z</date>
 		<key>statement</key>
 		<string>Storebælt åbnede</string>
 	</dict>
 	<dict>
-		<key>placement</key>
-		<integer>0</integer>
 		<key>date</key>
 		<date>1641-12-31T23:09:40Z</date>
 		<key>statement</key>
 		<string>Rundetårn åbnede</string>
 	</dict>
 	<dict>
-		<key>placement</key>
-		<integer>0</integer>
 		<key>date</key>
 		<date>911-12-31T23:09:40Z</date>
 		<key>statement</key>
 		<string>Harald Blåtands fødsel</string>
 	</dict>
 	<dict>
-		<key>placement</key>
-		<integer>0</integer>
 		<key>date</key>
 		<date>1843-12-31T23:09:40Z</date>
 		<key>statement</key>
 		<string>Tivoli åbnede</string>
 	</dict>
 	<dict>
-		<key>placement</key>
-		<integer>0</integer>
 		<key>date</key>
 		<date>1928-12-31T23:09:40Z</date>
 		<key>statement</key>
 		<string>Christiansborg åbnede</string>
 	</dict>
 	<dict>
-		<key>placement</key>
-		<integer>0</integer>
 		<key>date</key>
 		<date>1847-12-31T23:09:40Z</date>
 		<key>statement</key>

@@ -26,9 +26,16 @@ class ViewController: UIViewController {
     
     
     @IBAction func moveBottomEventUp(_ sender: Any) {
+    
+        for var event in events {
+            if event.placement == .fourth {
+                event.placement = .third
+            }
+            
+            
+        }
         
-
-        
+        updateLabels()
         
         
         
@@ -69,6 +76,8 @@ class ViewController: UIViewController {
     var events: [HistoricalEvent] = []
     func initiateEvents() {
         events = gameTopic.pickRandomEvents(amount: 4)
+        
+        
         events[0].placement = .first
         events[1].placement = .second
         events[2].placement = .third

@@ -22,6 +22,7 @@ protocol HistoricalEvent {
     var placement: eventPosition { get set }
 }
 
+
 protocol HistoricalGame {
     var eventCollection: [HistoricalEvent] { get set }
     var roundsPlayed: Int { get set }

@@ -85,7 +85,7 @@ class ViewController: UIViewController {
             // Attempt to import the EventCollection.plist
             let arrayOfDictionaries = try PlistImporter.importDictionaries(fromFile: "EventCollection", ofType: "plist")
             
-            // Attempt to unarchive the .plist
+            // Attempt to unarchive the arrayOfDictionaries
             let collection = try CollectionUnarchiver.collection(fromArray: arrayOfDictionaries)
             
             // Initialize game to "GameTopic" with event collection as collection unarchived above

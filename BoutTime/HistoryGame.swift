@@ -127,7 +127,7 @@ class GameTopic: HistoricalGame {
 }
 
 func loadButtonPressedSound() {
-    let pathToSoundFile = Bundle.main.path(forResource: "button-3", ofType: "wav")
+    let pathToSoundFile = Bundle.main.path(forResource: "button-3", ofType: ".wav")
     let soundURL = URL(fileURLWithPath: pathToSoundFile!)
     AudioServicesCreateSystemSoundID(soundURL as CFURL, &button)
 }

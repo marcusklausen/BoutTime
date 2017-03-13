@@ -143,6 +143,13 @@ class ViewController: UIViewController {
     func tick() {
         game.timer -= 1
         countdown.text = "0:\(game.timer)"
+        
+        if game.timer < 10 {
+            countdown.text = "0:0\(game.timer)"
+        }
+        if game.timer <= 0 {
+            countdown.text = "0:00"
+        }
     }
     
     override func viewDidLoad() {

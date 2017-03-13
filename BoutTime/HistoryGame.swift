@@ -28,6 +28,7 @@ protocol HistoricalGame {
     var eventCollection: [HistoricalEvent] { get set } // An array of evnets conforming to HistoricalEvent protocol
     var roundsPlayed: Int { get set }
     var numberOfRounds: Int { get }
+    var points: Int { get set }
     var timer: Int { get set } // how long is each round the the game type
     
     init(eventCollection: [HistoricalEvent]) // Should be initialized with an array of historical events as the eventCollection
@@ -35,9 +36,9 @@ protocol HistoricalGame {
     // Should be able to pick (amount) of random events and return them as an array conforming to HistoricalEvent
     func pickRandomEvents(amount: Int) -> [HistoricalEvent]
     
-    func nextRound(currentRound: Int)
+    func newRound()
     func endGame()
-    func checkAnswer(ofArray array: [HistoricalEvent])
+    func checkOrder(of array: [HistoricalEvent])
     
 }
 
@@ -101,6 +102,7 @@ class CollectionUnarchiver {
 class GameTopic: HistoricalGame {
     var eventCollection: [HistoricalEvent]
     var roundsPlayed: Int = 0
+    var points: Int = 0
     let numberOfRounds: Int = 6
     var timer: Int = 60
     
@@ -133,10 +135,21 @@ class GameTopic: HistoricalGame {
     }
     
     // - FIXME: Undefined functions
-    func nextRound(currentRound: Int) {}
+    func newRound() {
+    
+            print("new round")
+    }
     func endGame() {}
-    func checkAnswer(ofArray array: [HistoricalEvent]) {
-        
+    func checkOrder(of array: [HistoricalEvent]) {
+        if  array[0].date > array[1].date,
+            array[1].date > array[2].date,
+            array[2].date > array[3].date {
+            points += 1
+            newRound()
+            print("correct order, point awarded!")
+        } else {
+            print("wrong order")
+        }
     }
     
 }

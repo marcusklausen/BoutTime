@@ -111,7 +111,8 @@ class ViewController: UIViewController {
     
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            print("shake detected")
+            let events = [eventOne, eventTwo, eventThree, eventFour]
+            game.checkOrder(of: events as! [HistoricalEvent])
         }
     }
     

@@ -106,7 +106,15 @@ class ViewController: UIViewController {
         upperMiddleLabel.text = eventTwo?.statement
         underMiddleLabel.text = eventThree?.statement
         bottomLabel.text = eventFour?.statement
+        
     }
+    
+    override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
+        if motion == .motionShake {
+            print("shake detected")
+        }
+    }
+    
     
     // Creation of variables outside scope for global usage
     var events: [HistoricalEvent] = []

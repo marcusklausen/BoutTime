@@ -37,7 +37,7 @@ protocol HistoricalGame {
     
     func nextRound(currentRound: Int)
     func endGame()
-    func checkAnswer()
+    func checkAnswer(ofArray array: [HistoricalEvent])
     
 }
 
@@ -135,7 +135,9 @@ class GameTopic: HistoricalGame {
     // - FIXME: Undefined functions
     func nextRound(currentRound: Int) {}
     func endGame() {}
-    func checkAnswer() {}
+    func checkAnswer(ofArray array: [HistoricalEvent]) {
+        
+    }
     
 }
 

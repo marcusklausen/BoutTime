@@ -24,6 +24,9 @@ class ViewController: UIViewController {
     @IBOutlet weak var underMiddleLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     
+    // Interface builder outlet countdown
+    @IBOutlet weak var countdown: UILabel!
+    
     // Interface builder actions/functions
     @IBAction func moveLowerMiddleUp(_ sender: Any) {
         // Do the same as moveUpperMiddleDown
@@ -74,6 +77,8 @@ class ViewController: UIViewController {
         updateLabels()
         buttonPressedSound()
     }
+    
+    
     
     // Initialize game constant conforming to "GameTopic"
     let game: GameTopic
@@ -134,10 +139,21 @@ class ViewController: UIViewController {
         eventFour = events[3]
     }
     
+    
+    func tick() {
+        game.timer -= 1
+        countdown.text = "0:\(game.timer)"
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        countdown.text = "1:00"
         // Do any additional setup after loading the view, typically from a nib.
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.tick), userInfo: nil, repeats: true)
+        
+        
+        
+        
         
         // Load the sound for button press
         loadButtonPressedSound()

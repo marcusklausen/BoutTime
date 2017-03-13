@@ -239,6 +239,7 @@
                     </view>
                     <connections>
                         <outlet property="bottomLabel" destination="v84-ea-3dg" id="p6J-jK-f64"/>
+                        <outlet property="countdown" destination="py4-nx-bJ7" id="dpo-Rc-dWL"/>
                         <outlet property="firstEventDown" destination="Pbk-4t-co4" id="npk-LF-aYc"/>
                         <outlet property="fourthEventUp" destination="cFf-IW-pPR" id="e4R-zf-XH6"/>
                         <outlet property="secondEventDown" destination="P1b-MG-vl0" id="wTp-92-RbE"/>

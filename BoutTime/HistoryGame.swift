@@ -29,7 +29,7 @@ protocol HistoricalGame {
     var roundsPlayed: Int { get set }
     var numberOfRounds: Int { get }
     var points: Int { get set }
-    var timer: Int { get set } // how long is each round the the game type
+    var timer: Int { get } // how long is each round the the game type
     
     init(eventCollection: [HistoricalEvent]) // Should be initialized with an array of historical events as the eventCollection
     
@@ -110,6 +110,7 @@ class GameTopic: HistoricalGame {
     required init(eventCollection: [HistoricalEvent]) {
         self.eventCollection = eventCollection
     }
+    
     
     // Pick (amount) random events and return them as an array confirming to HistoricalEvent
     func pickRandomEvents(amount: Int) -> [HistoricalEvent] {

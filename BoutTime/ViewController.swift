@@ -35,12 +35,12 @@ class ViewController: UIViewController {
     @IBAction func moveUpperMiddleDown(_ sender: Any) {
         
         // Store temporary constants for swapping
-        let tempEventTwo = eventTwo
-        let tempEventThree = eventThree
+        let tempEventTwo    = events[1]
+        let tempEventThree  = events[2]
         
         // Swap events
-        eventTwo = tempEventThree
-        eventThree = tempEventTwo
+        events[1] = tempEventThree
+        events[2] = tempEventTwo
         
         // Update labels
         updateLabels()
@@ -55,10 +55,10 @@ class ViewController: UIViewController {
     @IBAction func moveTopDown(_ sender: Any) {
         
         // Same concept as moveUpperMiddleDown
-        let tempEventOne = eventOne
-        let tempEventTwo = eventTwo
-        eventOne = tempEventTwo
-        eventTwo = tempEventOne
+        let tempEventOne = events[0]
+        let tempEventTwo = events[1]
+        events[0] = tempEventTwo
+        events[1] = tempEventOne
         updateLabels()
         buttonPressedSound()
     }
@@ -70,10 +70,10 @@ class ViewController: UIViewController {
     @IBAction func moveBottomEventUp(_ sender: Any) {
         
         // Same concept as moveUpperMiddleDown
-        let tempEventFour = eventFour
-        let tempEventThree = eventThree
-        eventFour = tempEventThree
-        eventThree = tempEventFour
+        let tempEventThree = events[2]
+        let tempEventFour = events[3]
+        events[2] = tempEventFour
+        events[3] = tempEventThree
         updateLabels()
         buttonPressedSound()
     }
@@ -107,59 +107,47 @@ class ViewController: UIViewController {
     
     // Updates the labels .text property to the corresponding events .statement property
     func updateLabels() {
-        topLabel.text = eventOne?.statement
-        upperMiddleLabel.text = eventTwo?.statement
-        underMiddleLabel.text = eventThree?.statement
-        bottomLabel.text = eventFour?.statement
+        topLabel.text = events[0].statement
+        upperMiddleLabel.text = events[1].statement
+        underMiddleLabel.text = events[2].statement
+        bottomLabel.text = events[3].statement
         
+    }
+    
+    // Creation of variables outside scope for global usage
+    var events: [HistoricalEvent] = []
+    
+    
+    
+    func newRound() {
+        events = game.pickRandomEvents(amount: 4)
+        countdown.text = "1:00"
+        updateLabels()
     }
     
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            let events = [eventOne, eventTwo, eventThree, eventFour]
-            game.checkOrder(of: events as! [HistoricalEvent])
+            if game.checkOrder(of: events) == true {
+                newRound()
+            } else {
+                print("Wrong order, try again")
+                // - FIXME: add buzz sound here
+            }
         }
     }
     
-    
-    // Creation of variables outside scope for global usage
-    var events: [HistoricalEvent] = []
-    var eventOne: HistoricalEvent?
-    var eventTwo: HistoricalEvent?
-    var eventThree: HistoricalEvent?
-    var eventFour: HistoricalEvent?
+ 
     
     
-    // Picks (amount) random events and assigns to global variables corresponding to each label position
-    func initiateEvents() {
-        events = game.pickRandomEvents(amount: 4)
-        eventOne = events[0]
-        eventTwo = events[1]
-        eventThree = events[2]
-        eventFour = events[3]
-    }
+
     
-    
-    func tick() {
-        game.timer -= 1
-        countdown.text = "0:\(game.timer)"
-        
-        if game.timer < 10 {
-            countdown.text = "0:0\(game.timer)"
-        }
-        if game.timer <= 0 {
-            countdown.text = "0:00"
-        }
-    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        countdown.text = "1:00"
+        
         // Do any additional setup after loading the view, typically from a nib.
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ViewController.tick), userInfo: nil, repeats: true)
-        
-        
-        
+        newRound()
         
         
         // Load the sound for button press
@@ -174,7 +162,6 @@ class ViewController: UIViewController {
         fourthEventUp.setImage(#imageLiteral(resourceName: "up_full_selected.png"), for: UIControlState.highlighted)
         
         
-        initiateEvents() // Pick events and assign to variables
         updateLabels() // run update on labels
     }
 

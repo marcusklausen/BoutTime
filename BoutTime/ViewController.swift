@@ -139,13 +139,29 @@ class ViewController: UIViewController {
  
     
     
-
+    func tick(checkOrderOf: [HistoricalEvent]) {
+        game.timer -= 1
+        
+        if game.timer > 10 {
+            countdown.text = "0:\(game.timer)"
+            
+        } else if game.timer < 10 {
+           countdown.text = "0:0\(game.timer)"
+        } else if game.timer <= 0 {
+            if game.checkOrder(of: checkOrderOf) == true {
+                newRound()
+            } else {
+                print("Wrong order, try again")
+                // - FIXME: add buzz sound here
+            }
+        }
+    }
     
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector("tick"), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view, typically from a nib.
         newRound()
         

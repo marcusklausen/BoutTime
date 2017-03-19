@@ -30,7 +30,6 @@ protocol HistoricalGame {
     var numberOfRounds: Int { get }
     var points: Int { get set }
     var timer: Int { get } // how long is each round the the game type
-    var clock: Timer { get set } // actual timer
     
     init(eventCollection: [HistoricalEvent]) // Should be initialized with an array of historical events as the eventCollection
     
@@ -106,7 +105,6 @@ class GameTopic: HistoricalGame {
     var points: Int = 0
     let numberOfRounds: Int = 6
     var timer: Int = 10
-    var clock: Timer = Timer.scheduledTimer(timeInterval: 1.0, target: GameTopic.self, selector: #selector(GameTopic.tick), userInfo: nil, repeats: true)
     
     
     // Initialize the eventCollection property to the passed array of events
@@ -114,23 +112,7 @@ class GameTopic: HistoricalGame {
         self.eventCollection = eventCollection
     }
     
-    func tick(checkOrderOf: [HistoricalEvent]) -> String {
-        timer -= 1
-        
-        if timer > 10 {
-            return "0:\(timer)"
-            
-        } else if timer < 10 {
-            return "0:0\(timer)"
-        } else if timer <= 0 {
-            if checkOrder(of: checkOrderOf) == true {
-                newRound()
-            } else {
-                print("Wrong order, try again")
-                // - FIXME: add buzz sound here
-            }
-        }
-    }
+
     
     
     // Pick (amount) random events and return them as an array confirming to HistoricalEvent

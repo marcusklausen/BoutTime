@@ -149,7 +149,7 @@ class ViewController: UIViewController {
         countdown.text = "1:00"
         updateLabels()
         game.timer = 20
-        game.roundsPlayed += 1
+        game.roundsPlayed += 1 
         failButton.isHidden = true
         successButton.isHidden = true
         countdown.isHidden = false

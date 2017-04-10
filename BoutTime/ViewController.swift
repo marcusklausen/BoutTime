@@ -24,10 +24,20 @@ class ViewController: UIViewController {
     @IBOutlet weak var underMiddleLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     
+    @IBOutlet weak var failButton: UIButton!
+    @IBOutlet weak var successButton: UIButton!
+    
+    
     // Interface builder outlet countdown
     @IBOutlet weak var countdown: UILabel!
     
     // Interface builder actions/functions
+    @IBAction func forceNextRound(_ sender: UIButton!) {
+        if sender == successButton || sender == failButton {
+            newRound()
+        }
+    }
+    
     @IBAction func moveLowerMiddleUp(_ sender: Any) {
         // Do the same as moveUpperMiddleDown
         moveUpperMiddleDown(Any.self)
@@ -117,54 +127,90 @@ class ViewController: UIViewController {
     // Creation of variables outside scope for global usage
     var events: [HistoricalEvent] = []
     
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GameFinishedSegue" {
+            if let destination = segue.destination as? GameFinishedViewController {
+                if let score = sender as? Int {
+                    destination.score = score
+                }
+                
+            }
+        }
+    }
     
     func newRound() {
+        guard game.roundsPlayed != game.numberOfRounds else {
+            game.endGame()
+            performSegue(withIdentifier: "GameFinishedSegue", sender: game.points)
+            return
+        }
+        
         events = game.pickRandomEvents(amount: 4)
         countdown.text = "1:00"
         updateLabels()
+        game.timer = 20
+        game.roundsPlayed += 1
+        failButton.isHidden = true
+        successButton.isHidden = true
+        countdown.isHidden = false
+        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector(("tick")), userInfo: nil, repeats: true)
     }
     
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
             if game.checkOrder(of: events) == true {
-                newRound()
+                successButton.isHidden = false
             } else {
-                print("Wrong order, try again")
-                // - FIXME: add buzz sound here
+                failButton.isHidden = false
             }
+            timer?.invalidate()
+            countdown.isHidden = true
         }
     }
     
- 
+    var timer: Timer?
     
-    
-    func tick(checkOrderOf: [HistoricalEvent]) {
+    func tick() {
+        
         game.timer -= 1
         
-        if game.timer > 10 {
+        if game.timer >= 10 {
             countdown.text = "0:\(game.timer)"
             
         } else if game.timer < 10 {
            countdown.text = "0:0\(game.timer)"
-        } else if game.timer <= 0 {
-            if game.checkOrder(of: checkOrderOf) == true {
-                newRound()
+        }
+        
+        if game.timer <= 0 {
+            timer?.invalidate()
+            if game.checkOrder(of: events) == true {
+                successButton.isHidden = false
             } else {
-                print("Wrong order, try again")
-                // - FIXME: add buzz sound here
+                failButton.isHidden = false
             }
+            countdown.isHidden = true
+            
+            
+            
+            print("playedrounds: \(game.roundsPlayed)") // DEBUG
+            
+            print("points: \(game.points)") // DEBUG
+            
+            
         }
     }
+
     
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector("tick"), userInfo: nil, repeats: true)
+
         // Do any additional setup after loading the view, typically from a nib.
         newRound()
         
+        successButton.isHidden = true
+        failButton.isHidden = true
         
         // Load the sound for button press
         loadButtonPressedSound()

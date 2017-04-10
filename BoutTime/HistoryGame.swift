@@ -104,7 +104,7 @@ class GameTopic: HistoricalGame {
     var roundsPlayed: Int = 0
     var points: Int = 0
     let numberOfRounds: Int = 6
-    var timer: Int = 10
+    var timer: Int = 20
     
     
     // Initialize the eventCollection property to the passed array of events
@@ -140,17 +140,18 @@ class GameTopic: HistoricalGame {
     
     // - FIXME: Undefined functions
     func newRound() {
-    
-        
-            print("new round")
+        timer = 20
+        roundsPlayed += 1
     }
-    func endGame() {}
+    
+    func endGame() {
+    
+    }
     func checkOrder(of array: [HistoricalEvent]) -> Bool {
         if  array[0].date > array[1].date,
             array[1].date > array[2].date,
             array[2].date > array[3].date {
             points += 1
-            newRound()
             return true
         } else {
             return false

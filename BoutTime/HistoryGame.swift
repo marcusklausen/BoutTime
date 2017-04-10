@@ -30,32 +30,25 @@ protocol HistoricalGame {
     var numberOfRounds: Int { get }
     var points: Int { get set }
     var timer: Int { get } // how long is each round the the game type
-    
     init(eventCollection: [HistoricalEvent]) // Should be initialized with an array of historical events as the eventCollection
-    
-    // Should be able to pick (amount) of random events and return them as an array conforming to HistoricalEvent
-    func pickRandomEvents(amount: Int) -> [HistoricalEvent]
-    
-    func newRound()
-    func endGame()
+    func pickRandomEvents(_ amount: Int) -> [HistoricalEvent] // pick (amount) random events and return as [HsitoricalEvents]
     func checkOrder(of array: [HistoricalEvent]) -> Bool
-    
 }
 
-// Model an actual events which conforms to HistoricalEvent
+// Event structure
 struct Event: HistoricalEvent {
     let date: Date
     let statement: String
 }
 
-// Model the error cases for the PlistImporter
+// Error codes
 enum PlistImportError: Error {
     case invalidResource
     case conversionFailure
     case invalidSelection
 }
 
-// Attempt importing a file and return it as an array of dictionaries String to AnyObject
+// Attempt importing a file and return it as an array of dictionaries -> [[String: AnyObject]]
 class PlistImporter {
     static func importDictionaries(fromFile name: String, ofType type: String) throws -> [[String: AnyObject]] {
         
@@ -63,7 +56,6 @@ class PlistImporter {
         guard let path = Bundle.main.path(forResource: name, ofType: type) else {
             throw PlistImportError.invalidResource
         }
-        
         // Attempt casting the NSArray initialization of file as an array of dictionaries String to AnyObject
         guard let arrayOfDictionaries = NSArray.init(contentsOfFile: path) as? [[String: AnyObject]] else {
             throw PlistImportError.conversionFailure
@@ -92,31 +84,26 @@ class CollectionUnarchiver {
                     } else {
                         print("failed")
                     }
-            
         }
         return collection
     }
 }
 
-// Modeling a "GameTopic" conforming to HistoricalEvent
+// Modeling a "GameTopic" conforming to HistoricalEvent, this way we could have SpaceTopic, MusicTopic etc with individual settings
 class GameTopic: HistoricalGame {
     var eventCollection: [HistoricalEvent]
-    var roundsPlayed: Int = 0
     var points: Int = 0
+    var roundsPlayed: Int = 0
     let numberOfRounds: Int = 6
-    var timer: Int = 20
+    var timer: Int = 60
     
-    
-    // Initialize the eventCollection property to the passed array of events
+    // Initialize the eventCollection property to the passed an array of events
     required init(eventCollection: [HistoricalEvent]) {
         self.eventCollection = eventCollection
     }
     
-
-    
-    
     // Pick (amount) random events and return them as an array confirming to HistoricalEvent
-    func pickRandomEvents(amount: Int) -> [HistoricalEvent] {
+    func pickRandomEvents(_ amount: Int) -> [HistoricalEvent] {
         
         var eventsPicked: [HistoricalEvent] = []
         var randomNumbersUsed: [Int] = [] // Store which cases have already been picked
@@ -138,15 +125,6 @@ class GameTopic: HistoricalGame {
         return eventsPicked
     }
     
-    // - FIXME: Undefined functions
-    func newRound() {
-        timer = 20
-        roundsPlayed += 1
-    }
-    
-    func endGame() {
-    
-    }
     func checkOrder(of array: [HistoricalEvent]) -> Bool {
         if  array[0].date > array[1].date,
             array[1].date > array[2].date,
@@ -157,7 +135,6 @@ class GameTopic: HistoricalGame {
             return false
         }
     }
-    
 }
 
 // load sound for button presses

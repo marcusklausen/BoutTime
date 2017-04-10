@@ -23,10 +23,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var upperMiddleLabel: UILabel!
     @IBOutlet weak var underMiddleLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
+    @IBOutlet weak var shakeTextLabel: UILabel!
     
     @IBOutlet weak var failButton: UIButton!
     @IBOutlet weak var successButton: UIButton!
-    
     
     // Interface builder outlet countdown
     @IBOutlet weak var countdown: UILabel!
@@ -37,7 +37,6 @@ class ViewController: UIViewController {
             newRound()
         }
     }
-    
     @IBAction func moveLowerMiddleUp(_ sender: Any) {
         // Do the same as moveUpperMiddleDown
         moveUpperMiddleDown(Any.self)
@@ -88,11 +87,8 @@ class ViewController: UIViewController {
         buttonPressedSound()
     }
     
-    
-    
     // Initialize game constant conforming to "GameTopic"
     let game: GameTopic
-    
     
     //psuedo code
     required init?(coder aDecoder: NSCoder) {
@@ -140,38 +136,53 @@ class ViewController: UIViewController {
     
     func newRound() {
         guard game.roundsPlayed != game.numberOfRounds else {
-            game.endGame()
+            timer?.invalidate()
             performSegue(withIdentifier: "GameFinishedSegue", sender: game.points)
             return
         }
         
-        events = game.pickRandomEvents(amount: 4)
+        events = game.pickRandomEvents(4)
         countdown.text = "1:00"
         updateLabels()
-        game.timer = 20
+        game.timer = 60
         game.roundsPlayed += 1 
         failButton.isHidden = true
         successButton.isHidden = true
         countdown.isHidden = false
+        shakeTextLabel.text = "Shake to complete"
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector(("tick")), userInfo: nil, repeats: true)
+    }
+    
+    func endOfRound(answer: Bool) {
+        switch answer {
+        case true :
+            successButton.isHidden = false
+            failButton.isHidden = true
+        case false :
+            successButton.isHidden = true
+            failButton.isHidden = false
+        break
+        }
+        countdown.isHidden = true
+        timer?.invalidate()
+        shakeTextLabel.text = "Tap events to learn more"
+        
+        // DEBUG
+        print("Point: \(game.points) \nRounds played: \(game.roundsPlayed)")
     }
     
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
-            if game.checkOrder(of: events) == true {
-                successButton.isHidden = false
-            } else {
-                failButton.isHidden = false
-            }
-            timer?.invalidate()
-            countdown.isHidden = true
+                endOfRound(answer:
+                    game.checkOrder(of: events)
+            )
+            
         }
     }
     
     var timer: Timer?
     
     func tick() {
-        
         game.timer -= 1
         
         if game.timer >= 10 {
@@ -182,21 +193,9 @@ class ViewController: UIViewController {
         }
         
         if game.timer <= 0 {
-            timer?.invalidate()
-            if game.checkOrder(of: events) == true {
-                successButton.isHidden = false
-            } else {
-                failButton.isHidden = false
-            }
-            countdown.isHidden = true
-            
-            
-            
-            print("playedrounds: \(game.roundsPlayed)") // DEBUG
-            
-            print("points: \(game.points)") // DEBUG
-            
-            
+            endOfRound(answer:
+                game.checkOrder(of: events)
+            )
         }
     }
 
@@ -222,7 +221,6 @@ class ViewController: UIViewController {
         thirdEventUp.setImage(#imageLiteral(resourceName: "up_half_selected.png"), for: UIControlState.highlighted)
         thirdEventDown.setImage(#imageLiteral(resourceName: "down_half_selected.png"), for: UIControlState.highlighted)
         fourthEventUp.setImage(#imageLiteral(resourceName: "up_full_selected.png"), for: UIControlState.highlighted)
-        
         
         updateLabels() // run update on labels
     }

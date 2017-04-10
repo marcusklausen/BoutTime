@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -214,20 +215,20 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP3-i6-hQb">
-                                <rect key="frame" x="100" y="528" width="175" height="42"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP3-i6-hQb">
+                                <rect key="frame" x="100" y="526" width="175" height="42"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="42" id="tKk-wY-blM"/>
+                                    <constraint firstAttribute="width" secondItem="aP3-i6-hQb" secondAttribute="height" multiplier="25:6" id="onN-tk-zk2"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="next_round_success"/>
                                 <connections>
                                     <action selector="forceNextRound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fzU-WL-oGt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glo-gj-bk6">
-                                <rect key="frame" x="100" y="528" width="175" height="43"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glo-gj-bk6">
+                                <rect key="frame" x="100" y="526" width="175" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="7Lc-KM-2wf"/>
+                                    <constraint firstAttribute="width" secondItem="glo-gj-bk6" secondAttribute="height" multiplier="175:43" id="bce-A6-GP8"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="next_round_fail"/>
                                 <connections>
@@ -271,6 +272,7 @@
                         <outlet property="fourthEventUp" destination="cFf-IW-pPR" id="e4R-zf-XH6"/>
                         <outlet property="secondEventDown" destination="P1b-MG-vl0" id="wTp-92-RbE"/>
                         <outlet property="secondEventUp" destination="epZ-yO-zj4" id="4UK-7f-shs"/>
+                        <outlet property="shakeTextLabel" destination="A9l-Hr-bdN" id="Hhq-2g-uAC"/>
                         <outlet property="successButton" destination="aP3-i6-hQb" id="JUt-hX-pNE"/>
                         <outlet property="thirdEventDown" destination="BfH-Dg-heA" id="Gik-t1-mTH"/>
                         <outlet property="thirdEventUp" destination="D1b-CF-5Kf" id="71C-aL-3e0"/>

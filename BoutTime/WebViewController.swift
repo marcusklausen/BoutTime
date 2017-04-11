@@ -11,7 +11,7 @@ import UIKit
 class WebViewController: UIViewController {
 
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad() 
 
         // Do any additional setup after loading the view.
     }

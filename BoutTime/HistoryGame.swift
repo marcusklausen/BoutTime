@@ -13,7 +13,7 @@ import GameKit
 import AudioToolbox
 
 // Initializing sounds
-var button: SystemSoundID = 0
+var button: SystemSoundID = 1306
 
 
 // Model the content of historical events
@@ -21,6 +21,7 @@ var button: SystemSoundID = 0
 protocol HistoricalEvent {
     var date: Date { get } // date
     var statement: String { get } // Historical statement
+    var url: String { get }
 }
 
 //  Model the functionality of a historical game
@@ -39,6 +40,7 @@ protocol HistoricalGame {
 struct Event: HistoricalEvent {
     let date: Date
     let statement: String
+    let url: String
 }
 
 // Error codes
@@ -76,10 +78,11 @@ class CollectionUnarchiver {
             
                 // Attempt to cast contents of current dictionary
                 if  let date = dictionary["date"] as? Date,
-                    let statement = dictionary["statement"] as? String {
+                    let statement = dictionary["statement"] as? String,
+                    let url = dictionary["url"] as? String {
                     
                         // Create an instance of Event and append it to the collection
-                        let event = Event(date: date, statement: statement)
+                    let event = Event(date: date, statement: statement, url: url)
                         collection.append(event)
                     } else {
                         print("failed")
@@ -135,13 +138,6 @@ class GameTopic: HistoricalGame {
             return false
         }
     }
-}
-
-// load sound for button presses
-func loadButtonPressedSound() {
-    let pathToSoundFile = Bundle.main.path(forResource: "button-3", ofType: ".wav")
-    let soundURL = URL(fileURLWithPath: pathToSoundFile!)
-    AudioServicesCreateSystemSoundID(soundURL as CFURL, &button)
 }
 
 // Function for playback of the loaded sound &button

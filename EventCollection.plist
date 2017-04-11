@@ -4,51 +4,203 @@
 <array>
 	<dict>
 		<key>date</key>
-		<date>1546-01-01T12:22:56Z</date>
-		<key>statement</key>
-		<string>Christian 4. kroning</string>
-	</dict>
-	<dict>
-		<key>date</key>
-		<date>1945-01-01T12:22:56Z</date>
-		<key>statement</key>
-		<string>Danmarks befrielse</string>
-	</dict>
-	<dict>
-		<key>date</key>
-		<date>1998-01-01T12:22:56Z</date>
-		<key>statement</key>
-		<string>Storebælt åbnede</string>
-	</dict>
-	<dict>
-		<key>date</key>
-		<date>1641-12-31T23:09:40Z</date>
-		<key>statement</key>
-		<string>Rundetårn åbnede</string>
-	</dict>
-	<dict>
-		<key>date</key>
-		<date>911-12-31T23:09:40Z</date>
-		<key>statement</key>
-		<string>Harald Blåtands fødsel</string>
-	</dict>
-	<dict>
-		<key>date</key>
-		<date>1843-12-31T23:09:40Z</date>
-		<key>statement</key>
-		<string>Tivoli åbnede</string>
-	</dict>
-	<dict>
-		<key>date</key>
-		<date>1928-12-31T23:09:40Z</date>
-		<key>statement</key>
-		<string>Christiansborg åbnede</string>
-	</dict>
-	<dict>
-		<key>date</key>
 		<date>1847-12-31T23:09:40Z</date>
 		<key>statement</key>
-		<string>Thomas Edison blev født</string>
+		<string>Birth of Thomas Edison</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Thomas_Edison</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1947-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Beginning of the Cold War</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Cold_War</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1974-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Microsoft was founded</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Microsoft</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1990-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Beginning of the Golf War</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Gulf_War</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>2014-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Swift-language introduction</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Swift_(programming_language)</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1969-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Apollo 11 launch</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Apollo_11</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1939-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>World War II began</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/World_War_II</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1962-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Cuba Missile Crisis</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Cuban_Missile_Crisis</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1983-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Madonna first album release</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Madonna_(entertainer)#Discography</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1989-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Eiffel Tower opening</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Eiffel_Tower</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>2006-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>First iPhone release</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/IPhone</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>2009-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>First iPad release</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/IPad</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1975-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Apple was founded</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Apple_Inc.</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1997-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Google was founded</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Google</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1998-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Fight Club was released (movie)</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Fight_Club</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1910-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Titanic launched (ship)</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/RMS_Titanic</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>2005-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Spotify launched</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Spotify</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1997-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>First iMac was released</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/IMac</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>2010-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Team Treehouse was founded</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Treehouse_(company)</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1999-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Linkin Park first album</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Hybrid_Theory</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1996-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>First Harry Potter book release</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Harry_Potter_and_the_Philosopher%27s_Stone</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1995-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Nintendo 64 EU release </string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Nintendo_64</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1993-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Playstation was introduced</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/PlayStation</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>2007-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Android (OS) release date</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Android_(operating_system)</string>
+	</dict>
+	<dict>
+		<key>date</key>
+		<date>1902-12-31T23:09:40Z</date>
+		<key>statement</key>
+		<string>Ford Motor Company was founded</string>
+		<key>url</key>
+		<string>https://en.wikipedia.org/wiki/Ford_Motor_Company</string>
 	</dict>
 </array>
 </plist>

@@ -31,8 +31,12 @@ class ViewController: UIViewController {
     // Interface builder outlet countdown
     @IBOutlet weak var countdown: UILabel!
     
+    // Webview Actions
+    
+    
     // Interface builder actions/functions
     @IBAction func forceNextRound(_ sender: UIButton!) {
+        buttonPressedSound()
         if sender == successButton || sender == failButton {
             newRound()
         }
@@ -211,8 +215,6 @@ class ViewController: UIViewController {
         successButton.isHidden = true
         failButton.isHidden = true
         
-        // Load the sound for button press
-        loadButtonPressedSound()
         
         // Update buttons with highlighted state
         firstEventDown.setImage(#imageLiteral(resourceName: "down_full_selected"), for: UIControlState.highlighted)

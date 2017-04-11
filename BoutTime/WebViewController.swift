@@ -1,27 +1,19 @@
 //
-//  GameFinishedViewController.swift
+//  WebViewController.swift
 //  BoutTime
 //
-//  Created by howroot on 06/04/2017.
+//  Created by howroot on 11/04/2017.
 //  Copyright © 2017 Marcus Jepsen Klausen. All rights reserved.
 //
 
 import UIKit
 
-class GameFinishedViewController: UIViewController {
+class WebViewController: UIViewController {
 
-    @IBOutlet weak var scoreLabel: UILabel!
-    @IBAction func playAgainButton(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    var score: Int = 0
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        scoreLabel.text = "\(score)/6"
 
+        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {

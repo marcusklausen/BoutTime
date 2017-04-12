@@ -280,7 +280,7 @@
                         <outlet property="underMiddleLabel" destination="1oV-Zh-Oop" id="8aG-sc-1QQ"/>
                         <outlet property="upperMiddleLabel" destination="ONq-PA-fzS" id="YVV-yf-vyn"/>
                         <segue destination="aPM-K6-qjw" kind="show" identifier="GameFinishedSegue" id="HoR-mD-xUh"/>
-                        <segue destination="M67-ag-TC8" kind="presentation" id="cOx-xK-5dQ"/>
+                        <segue destination="M67-ag-TC8" kind="presentation" identifier="WebView" id="cOx-xK-5dQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -308,7 +308,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qo0-Lk-Fe9">
                                 <rect key="frame" x="115" y="402" width="145" height="46"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="46" id="WOh-Ce-Sdo"/>
+                                    <constraint firstAttribute="width" secondItem="Qo0-Lk-Fe9" secondAttribute="height" multiplier="145:46" id="zVO-m3-AqS"/>
                                 </constraints>
                                 <state key="normal" image="play_again"/>
                                 <connections>
@@ -372,6 +372,9 @@
                             <constraint firstItem="K8u-TG-E6d" firstAttribute="trailing" secondItem="sEM-Ce-yfy" secondAttribute="trailingMargin" id="nyx-qK-ZS6"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="webView" destination="K8u-TG-E6d" id="yFI-kA-JZ1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Tb-cN-7C1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

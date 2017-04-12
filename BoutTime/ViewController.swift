@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, GameFinishedDelegate {
    
     // Interface builder outlet buttons
     @IBOutlet weak var firstEventDown: UIButton!
@@ -91,6 +91,12 @@ class ViewController: UIViewController {
         buttonPressedSound()
     }
     
+    func playAgainButtonPressed(_ playAgain: Bool) {
+        game.points = 0
+        game.roundsPlayed = 0
+        newRound()
+    }
+    
     // Initialize game constant conforming to "GameTopic"
     let game: GameTopic
     
@@ -132,8 +138,16 @@ class ViewController: UIViewController {
             if let destination = segue.destination as? GameFinishedViewController {
                 if let score = sender as? Int {
                     destination.score = score
+                    destination.delegate = self
                 }
                 
+            }
+        }
+        if segue.identifier == "WebView" {
+            if let destination = segue.destination as? WebViewController {
+                if let url = sender as? String {
+                    destination.webView.loadRequest()
+                }
             }
         }
     }

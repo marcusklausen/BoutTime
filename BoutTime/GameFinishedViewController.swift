@@ -8,12 +8,21 @@
 
 import UIKit
 
+protocol GameFinishedDelegate {
+    func playAgainButtonPressed(_ playAgain: Bool)
+}
+
 class GameFinishedViewController: UIViewController {
 
     @IBOutlet weak var scoreLabel: UILabel!
     @IBAction func playAgainButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
+        delegate.playAgainButtonPressed(true)
     }
+    
+
+    
+    var delegate:GameFinishedDelegate! = nil
     
     var score: Int = 0
     

@@ -11,9 +11,16 @@ import UIKit
 class WebViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
 
+    var urlString = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad() 
-
+        
+        
+        let link = URL(string: urlString)
+        let request = URLRequest(url: link!)
+        webView.loadRequest(request)
+        
         // Do any additional setup after loading the view.
     }
 
@@ -21,6 +28,7 @@ class WebViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
     
 
     /*

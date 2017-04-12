@@ -31,9 +31,29 @@ class ViewController: UIViewController, GameFinishedDelegate {
     // Interface builder outlet countdown
     @IBOutlet weak var countdown: UILabel!
     
+    @IBOutlet weak var topEventButton: UIButton!
+    @IBOutlet weak var secondEventButton: UIButton!
+    @IBOutlet weak var thirdEventButton: UIButton!
+    @IBOutlet weak var fourthEventButton: UIButton!
+    
+    
     // Webview Actions
-    
-    
+    @IBAction func eventWebViewEngaged(_ sender: UIButton!) {
+        switch sender {
+        case topEventButton:
+            performSegue(withIdentifier: "WebView", sender: events[0].url)
+        case secondEventButton:
+            performSegue(withIdentifier: "WebView", sender: events[1].url)
+        case thirdEventButton:
+            performSegue(withIdentifier: "WebView", sender: events[2].url)
+        case fourthEventButton:
+            performSegue(withIdentifier: "WebView", sender: events[3].url)
+        default:
+            performSegue(withIdentifier: "WebView", sender: "http://www.teamtreehouse.com")
+        }
+        
+    }
+
     // Interface builder actions/functions
     @IBAction func forceNextRound(_ sender: UIButton!) {
         buttonPressedSound()
@@ -145,8 +165,8 @@ class ViewController: UIViewController, GameFinishedDelegate {
         }
         if segue.identifier == "WebView" {
             if let destination = segue.destination as? WebViewController {
-                if let url = sender as? String {
-                    destination.webView.loadRequest()
+                if let link = sender as? String {
+                    destination.urlString = link
                 }
             }
         }
@@ -225,6 +245,7 @@ class ViewController: UIViewController, GameFinishedDelegate {
 
         // Do any additional setup after loading the view, typically from a nib.
         newRound()
+        print(events[0].url)
         
         successButton.isHidden = true
         failButton.isHidden = true

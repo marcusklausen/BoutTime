@@ -42,6 +42,13 @@
                                         <color key="textColor" red="0.010066603310406208" green="0.3665296733379364" blue="0.48767608404159546" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dfc-gF-P8V">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="105"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="eventWebViewEngaged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="jHb-Dd-WP6"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -108,6 +115,13 @@
                                         <color key="textColor" red="0.01006660331" green="0.36652967330000003" blue="0.48767608400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cp9-Ak-KSZ">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="105"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="eventWebViewEngaged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zyw-VF-lpf"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -158,6 +172,13 @@
                                         <color key="textColor" red="0.01006660331" green="0.36652967330000003" blue="0.48767608400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X0j-Qa-dVg">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="105"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="eventWebViewEngaged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="8By-uK-o28"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -197,6 +218,13 @@
                                         <color key="textColor" red="0.01006660331" green="0.36652967330000003" blue="0.48767608400000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sOO-ha-4mn">
+                                        <rect key="frame" x="0.0" y="0.0" width="295" height="105"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <connections>
+                                            <action selector="eventWebViewEngaged:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TmK-NN-ARb"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
@@ -269,13 +297,17 @@
                         <outlet property="countdown" destination="py4-nx-bJ7" id="dpo-Rc-dWL"/>
                         <outlet property="failButton" destination="glo-gj-bk6" id="IQu-Sl-2LJ"/>
                         <outlet property="firstEventDown" destination="Pbk-4t-co4" id="npk-LF-aYc"/>
+                        <outlet property="fourthEventButton" destination="sOO-ha-4mn" id="QLC-Jx-nxK"/>
                         <outlet property="fourthEventUp" destination="cFf-IW-pPR" id="e4R-zf-XH6"/>
+                        <outlet property="secondEventButton" destination="Cp9-Ak-KSZ" id="Qqn-sO-e0f"/>
                         <outlet property="secondEventDown" destination="P1b-MG-vl0" id="wTp-92-RbE"/>
                         <outlet property="secondEventUp" destination="epZ-yO-zj4" id="4UK-7f-shs"/>
                         <outlet property="shakeTextLabel" destination="A9l-Hr-bdN" id="Hhq-2g-uAC"/>
                         <outlet property="successButton" destination="aP3-i6-hQb" id="JUt-hX-pNE"/>
+                        <outlet property="thirdEventButton" destination="X0j-Qa-dVg" id="g68-C3-x4Y"/>
                         <outlet property="thirdEventDown" destination="BfH-Dg-heA" id="Gik-t1-mTH"/>
                         <outlet property="thirdEventUp" destination="D1b-CF-5Kf" id="71C-aL-3e0"/>
+                        <outlet property="topEventButton" destination="Dfc-gF-P8V" id="2QN-0L-htO"/>
                         <outlet property="topLabel" destination="vGm-fq-JcU" id="VWh-dg-a38"/>
                         <outlet property="underMiddleLabel" destination="1oV-Zh-Oop" id="8aG-sc-1QQ"/>
                         <outlet property="upperMiddleLabel" destination="ONq-PA-fzS" id="YVV-yf-vyn"/>

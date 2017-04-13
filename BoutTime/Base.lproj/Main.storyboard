@@ -77,11 +77,11 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Shake to complete" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A9l-Hr-bdN">
-                                <rect key="frame" x="82" y="587" width="211" height="30"/>
+                                <rect key="frame" x="16" y="587" width="343" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="r0L-db-xAX"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <color key="textColor" red="0.18686282634735107" green="0.53955256938934326" blue="0.68510651588439941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -244,7 +244,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aP3-i6-hQb">
-                                <rect key="frame" x="100" y="526" width="175" height="42"/>
+                                <rect key="frame" x="100" y="530" width="175" height="42"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aP3-i6-hQb" secondAttribute="height" multiplier="25:6" id="onN-tk-zk2"/>
                                 </constraints>
@@ -254,7 +254,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glo-gj-bk6">
-                                <rect key="frame" x="100" y="526" width="175" height="43"/>
+                                <rect key="frame" x="100" y="529" width="175" height="43"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="glo-gj-bk6" secondAttribute="height" multiplier="175:43" id="bce-A6-GP8"/>
                                 </constraints>
@@ -270,21 +270,21 @@
                             <constraint firstItem="glo-gj-bk6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="84" id="64F-Nb-cpq"/>
                             <constraint firstItem="ffQ-CA-wpf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="6uQ-sb-kNN"/>
                             <constraint firstItem="py4-nx-bJ7" firstAttribute="top" secondItem="NsK-3R-PFR" secondAttribute="bottom" constant="15" id="7D7-bP-g3Q"/>
-                            <constraint firstItem="aP3-i6-hQb" firstAttribute="top" secondItem="NsK-3R-PFR" secondAttribute="bottom" constant="24" id="7bG-gv-VfV"/>
+                            <constraint firstItem="aP3-i6-hQb" firstAttribute="top" secondItem="NsK-3R-PFR" secondAttribute="bottom" constant="28" id="7bG-gv-VfV"/>
                             <constraint firstItem="uMA-Mq-LQg" firstAttribute="top" secondItem="ffQ-CA-wpf" secondAttribute="bottom" constant="15" id="8fZ-Qn-zom"/>
                             <constraint firstItem="NsK-3R-PFR" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="9h4-cJ-E3B"/>
                             <constraint firstItem="tBP-jq-Qok" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="EAI-TL-P4r"/>
                             <constraint firstItem="ffQ-CA-wpf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Fej-9b-D71"/>
                             <constraint firstItem="tBP-jq-Qok" firstAttribute="top" secondItem="uMA-Mq-LQg" secondAttribute="bottom" constant="15" id="GJT-Bq-34L"/>
-                            <constraint firstAttribute="trailing" secondItem="A9l-Hr-bdN" secondAttribute="trailing" constant="82" id="Hwx-qc-vmi"/>
                             <constraint firstAttribute="trailingMargin" secondItem="glo-gj-bk6" secondAttribute="trailing" constant="84" id="Mwg-Xn-cov"/>
                             <constraint firstItem="tBP-jq-Qok" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="PZL-sU-zvi"/>
                             <constraint firstItem="uMA-Mq-LQg" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="V9n-Yf-L0n"/>
                             <constraint firstItem="ffQ-CA-wpf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="17" id="X15-aT-z1J"/>
+                            <constraint firstItem="A9l-Hr-bdN" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="Xeb-OK-ZIq"/>
                             <constraint firstItem="uMA-Mq-LQg" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="bnd-7w-7rk"/>
-                            <constraint firstItem="glo-gj-bk6" firstAttribute="top" secondItem="NsK-3R-PFR" secondAttribute="bottom" constant="24" id="dA8-uz-Hac"/>
-                            <constraint firstItem="A9l-Hr-bdN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="82" id="dBO-LZ-ic3"/>
+                            <constraint firstItem="glo-gj-bk6" firstAttribute="top" secondItem="NsK-3R-PFR" secondAttribute="bottom" constant="27" id="dA8-uz-Hac"/>
                             <constraint firstItem="aP3-i6-hQb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="84" id="fWs-cc-kKW"/>
+                            <constraint firstItem="A9l-Hr-bdN" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ghk-H0-mXJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="aP3-i6-hQb" secondAttribute="trailing" constant="84" id="ijb-DR-VN9"/>
                             <constraint firstItem="NsK-3R-PFR" firstAttribute="top" secondItem="tBP-jq-Qok" secondAttribute="bottom" constant="15" id="k6R-pW-cGZ"/>
                             <constraint firstItem="A9l-Hr-bdN" firstAttribute="top" secondItem="py4-nx-bJ7" secondAttribute="bottom" constant="5" id="kAZ-CQ-cTr"/>
@@ -382,7 +382,7 @@
         <!--Web View Controller-->
         <scene sceneID="4ew-fV-037">
             <objects>
-                <viewController id="M67-ag-TC8" customClass="WebViewController" sceneMemberID="viewController">
+                <viewController id="M67-ag-TC8" customClass="WebViewController" customModule="BoutTime" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="vU8-Vd-GPC"/>
                         <viewControllerLayoutGuide type="bottom" id="wyF-VC-t4A"/>
@@ -392,16 +392,32 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K8u-TG-E6d">
-                                <rect key="frame" x="16" y="20" width="343" height="627"/>
+                                <rect key="frame" x="0.0" y="58" width="375" height="609"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </webView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageWhenHighlighted="NO" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7fg-eX-1Yl">
+                                <rect key="frame" x="0.0" y="8" width="375" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="7fg-eX-1Yl" secondAttribute="height" multiplier="15:2" id="vbf-Pm-2DT"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="webview_bar"/>
+                                <state key="highlighted">
+                                    <color key="titleColor" red="1" green="0.57768380641937256" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="dismissWebView:" destination="M67-ag-TC8" eventType="touchUpInside" id="FcA-X1-vAu"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.0020589011255651712" green="0.15775290131568909" blue="0.29037228226661682" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="1" green="0.57768380641937256" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="K8u-TG-E6d" firstAttribute="top" secondItem="vU8-Vd-GPC" secondAttribute="bottom" id="WEF-YR-7Db"/>
-                            <constraint firstItem="K8u-TG-E6d" firstAttribute="leading" secondItem="sEM-Ce-yfy" secondAttribute="leadingMargin" id="YBP-bq-J0Q"/>
-                            <constraint firstItem="wyF-VC-t4A" firstAttribute="top" secondItem="K8u-TG-E6d" secondAttribute="bottom" constant="20" id="YR1-Pd-GZH"/>
-                            <constraint firstItem="K8u-TG-E6d" firstAttribute="trailing" secondItem="sEM-Ce-yfy" secondAttribute="trailingMargin" id="nyx-qK-ZS6"/>
+                            <constraint firstItem="K8u-TG-E6d" firstAttribute="leading" secondItem="sEM-Ce-yfy" secondAttribute="leading" id="Bh4-Wa-ylr"/>
+                            <constraint firstItem="wyF-VC-t4A" firstAttribute="top" secondItem="K8u-TG-E6d" secondAttribute="bottom" id="FRB-nl-CeQ"/>
+                            <constraint firstAttribute="trailing" secondItem="7fg-eX-1Yl" secondAttribute="trailing" id="M2u-67-NJq"/>
+                            <constraint firstItem="7fg-eX-1Yl" firstAttribute="leading" secondItem="sEM-Ce-yfy" secondAttribute="leading" id="TqD-WS-9nr"/>
+                            <constraint firstAttribute="trailing" secondItem="K8u-TG-E6d" secondAttribute="trailing" id="epw-zU-WnQ"/>
+                            <constraint firstItem="K8u-TG-E6d" firstAttribute="top" secondItem="7fg-eX-1Yl" secondAttribute="bottom" id="pBO-WP-xlV"/>
+                            <constraint firstItem="7fg-eX-1Yl" firstAttribute="top" secondItem="sEM-Ce-yfy" secondAttribute="top" constant="8" id="wID-ek-D50"/>
                         </constraints>
                     </view>
                     <connections>
@@ -421,5 +437,6 @@
         <image name="play_again" width="450" height="142"/>
         <image name="up_full" width="158" height="457"/>
         <image name="up_half" width="158" height="229"/>
+        <image name="webview_bar" width="1333" height="167"/>
     </resources>
 </document>

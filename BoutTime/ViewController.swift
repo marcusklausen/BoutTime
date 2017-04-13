@@ -172,6 +172,20 @@ class ViewController: UIViewController, GameFinishedDelegate {
         }
     }
     
+    func enableWebViewButtons(_ enable: Bool) {
+        if enable == true {
+            topEventButton.isEnabled = true
+            secondEventButton.isEnabled = true
+            thirdEventButton.isEnabled = true
+            fourthEventButton.isEnabled = true
+        } else if enable == false {
+                topEventButton.isEnabled = false
+                secondEventButton.isEnabled = false
+                thirdEventButton.isEnabled = false
+                fourthEventButton.isEnabled = false
+            }
+        }
+    
     func newRound() {
         guard game.roundsPlayed != game.numberOfRounds else {
             timer?.invalidate()
@@ -179,6 +193,7 @@ class ViewController: UIViewController, GameFinishedDelegate {
             return
         }
         
+        enableWebViewButtons(false)
         events = game.pickRandomEvents(4)
         countdown.text = "1:00"
         updateLabels()
@@ -201,6 +216,7 @@ class ViewController: UIViewController, GameFinishedDelegate {
             failButton.isHidden = false
         break
         }
+        enableWebViewButtons(true)
         countdown.isHidden = true
         timer?.invalidate()
         shakeTextLabel.text = "Tap events to learn more"

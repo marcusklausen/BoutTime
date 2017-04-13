@@ -10,11 +10,14 @@ import UIKit
 
 class WebViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
+    @IBAction func dismissWebView(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 
     var urlString = ""
     
     override func viewDidLoad() {
-        super.viewDidLoad() 
+        super.viewDidLoad()
         
         
         let link = URL(string: urlString)

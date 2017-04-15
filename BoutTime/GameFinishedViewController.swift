@@ -8,6 +8,7 @@
 
 import UIKit
 
+// Delegate protocol, ViewController.swift conforms
 protocol GameFinishedDelegate {
     func playAgainButtonPressed(_ playAgain: Bool)
 }
@@ -15,20 +16,27 @@ protocol GameFinishedDelegate {
 class GameFinishedViewController: UIViewController {
 
     @IBOutlet weak var scoreLabel: UILabel!
+    
+    // Play again pressed?
     @IBAction func playAgainButton(_ sender: Any) {
+        
+        // Dismiss
         dismiss(animated: true, completion: nil)
+        
+        // Run playAgainButtonPressed() method form ViewController.swift thanks to delegate
         delegate.playAgainButtonPressed(true)
     }
     
-
+    // Set delegate to nil with this VC as type
+    var delegate: GameFinishedDelegate! = nil
     
-    var delegate:GameFinishedDelegate! = nil
-    
+    // Initiate score
     var score: Int = 0
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // Set score for display
         scoreLabel.text = "\(score)/6"
 
     }

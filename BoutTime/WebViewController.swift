@@ -10,6 +10,8 @@ import UIKit
 
 class WebViewController: UIViewController {
     @IBOutlet weak var webView: UIWebView!
+    
+    // Close web view
     @IBAction func dismissWebView(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
@@ -19,9 +21,11 @@ class WebViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
+        // Convert string to url to URLRequest
         let link = URL(string: urlString)
         let request = URLRequest(url: link!)
+        
+        // Load request
         webView.loadRequest(request)
         
         // Do any additional setup after loading the view.

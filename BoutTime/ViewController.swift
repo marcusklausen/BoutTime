@@ -10,7 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, GameFinishedDelegate {
    
-    // Interface builder outlet buttons
+
+//- MARK: OUTLETS
+    
+    // Arrow buttons
     @IBOutlet weak var firstEventDown: UIButton!
     @IBOutlet weak var secondEventUp: UIButton!
     @IBOutlet weak var secondEventDown: UIButton!
@@ -18,26 +21,27 @@ class ViewController: UIViewController, GameFinishedDelegate {
     @IBOutlet weak var thirdEventDown: UIButton!
     @IBOutlet weak var fourthEventUp: UIButton!
 
-    // Interface builder outlet labels
+    // Event labels
     @IBOutlet weak var topLabel: UILabel!
     @IBOutlet weak var upperMiddleLabel: UILabel!
     @IBOutlet weak var underMiddleLabel: UILabel!
     @IBOutlet weak var bottomLabel: UILabel!
     @IBOutlet weak var shakeTextLabel: UILabel!
     
+    // next round buttons
     @IBOutlet weak var failButton: UIButton!
     @IBOutlet weak var successButton: UIButton!
     
-    // Interface builder outlet countdown
+    // Outlets for event webview buttons and countdown label
     @IBOutlet weak var countdown: UILabel!
-    
     @IBOutlet weak var topEventButton: UIButton!
     @IBOutlet weak var secondEventButton: UIButton!
     @IBOutlet weak var thirdEventButton: UIButton!
     @IBOutlet weak var fourthEventButton: UIButton!
-    
-    
-    // Webview Actions
+
+//- MARK: Actions
+
+    // perform segue with correct event wiki URL
     @IBAction func eventWebViewEngaged(_ sender: UIButton!) {
         switch sender {
         case topEventButton:
@@ -49,18 +53,18 @@ class ViewController: UIViewController, GameFinishedDelegate {
         case fourthEventButton:
             performSegue(withIdentifier: "WebView", sender: events[3].url)
         default:
-            performSegue(withIdentifier: "WebView", sender: "http://www.teamtreehouse.com")
+            performSegue(withIdentifier: "WebView", sender: "http://www.teamtreehouse.com") // Easter egg
         }
-        
     }
 
-    // Interface builder actions/functions
+    // Check it next round button was pressed
     @IBAction func forceNextRound(_ sender: UIButton!) {
         buttonPressedSound()
         if sender == successButton || sender == failButton {
             newRound()
         }
     }
+    
     @IBAction func moveLowerMiddleUp(_ sender: Any) {
         // Do the same as moveUpperMiddleDown
         moveUpperMiddleDown(Any.self)
@@ -86,7 +90,6 @@ class ViewController: UIViewController, GameFinishedDelegate {
         moveTopDown(Any.self)
     }
     @IBAction func moveTopDown(_ sender: Any) {
-        
         // Same concept as moveUpperMiddleDown
         let tempEventOne = events[0]
         let tempEventTwo = events[1]
@@ -96,12 +99,10 @@ class ViewController: UIViewController, GameFinishedDelegate {
         buttonPressedSound()
     }
     @IBAction func moveLowerMiddleDown(_ sender: Any) {
-        
         // Do the same as moveBottomEventUp
         moveBottomEventUp(Any.self)
     }
     @IBAction func moveBottomEventUp(_ sender: Any) {
-        
         // Same concept as moveUpperMiddleDown
         let tempEventThree = events[2]
         let tempEventFour = events[3]
@@ -111,13 +112,14 @@ class ViewController: UIViewController, GameFinishedDelegate {
         buttonPressedSound()
     }
     
+    // Delegate function, if score modal is dismissed then;
     func playAgainButtonPressed(_ playAgain: Bool) {
         game.points = 0
         game.roundsPlayed = 0
         newRound()
     }
     
-    // Initialize game constant conforming to "GameTopic"
+    // Initialize game constant conforming to "GameTopic" e.g "CarTopic"
     let game: GameTopic
     
     //psuedo code
@@ -133,12 +135,11 @@ class ViewController: UIViewController, GameFinishedDelegate {
             self.game = GameTopic(eventCollection: collection)
             
         } catch let error {
+            
             fatalError("\(error)")
         }
-        
         // psuedo code
         super.init(coder: aDecoder)
-        
     }
     
     // Updates the labels .text property to the corresponding events .statement property
@@ -150,19 +151,28 @@ class ViewController: UIViewController, GameFinishedDelegate {
         
     }
     
-    // Creation of variables outside scope for global usage
+    // Creation event array outside scope for global usage
     var events: [HistoricalEvent] = []
     
+    // Prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        // Prepare for GameFinishedVC transition
         if segue.identifier == "GameFinishedSegue" {
             if let destination = segue.destination as? GameFinishedViewController {
                 if let score = sender as? Int {
+                    
+                    // Set GameFinishedViewControllers score var to this VCs score var
                     destination.score = score
+                    
+                    // Initialize delegate on this VC otherwise it wont work
                     destination.delegate = self
                 }
                 
             }
         }
+        
+        // Prepare for webviewVC transition send link to WebVC urlString variable
         if segue.identifier == "WebView" {
             if let destination = segue.destination as? WebViewController {
                 if let link = sender as? String {
@@ -172,6 +182,7 @@ class ViewController: UIViewController, GameFinishedDelegate {
         }
     }
     
+    // Helper method - enable or disable all WebView buttons
     func enableWebViewButtons(_ enable: Bool) {
         if enable == true {
             topEventButton.isEnabled = true
@@ -187,26 +198,41 @@ class ViewController: UIViewController, GameFinishedDelegate {
         }
     
     func newRound() {
+        
+        // Make sure we haven't played all rounds
         guard game.roundsPlayed != game.numberOfRounds else {
+            
+            // Else we end game
             timer?.invalidate()
             performSegue(withIdentifier: "GameFinishedSegue", sender: game.points)
             return
         }
         
+        // Disable webview buttons
         enableWebViewButtons(false)
+        
         events = game.pickRandomEvents(4)
         countdown.text = "1:00"
         updateLabels()
+        
         game.timer = 60
-        game.roundsPlayed += 1 
+        game.roundsPlayed += 1
+        
+        // Hide next buttons and show countdown
         failButton.isHidden = true
         successButton.isHidden = true
         countdown.isHidden = false
+        
+        // Set shakeTextLabel
         shakeTextLabel.text = "Shake to complete"
+        
+        // Create timer instance
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: Selector(("tick")), userInfo: nil, repeats: true)
     }
-    
+
     func endOfRound(answer: Bool) {
+        
+        // Show correct button
         switch answer {
         case true :
             successButton.isHidden = false
@@ -216,17 +242,20 @@ class ViewController: UIViewController, GameFinishedDelegate {
             failButton.isHidden = false
         break
         }
+        
         enableWebViewButtons(true)
         countdown.isHidden = true
-        timer?.invalidate()
+        timer?.invalidate() // stop timer
         shakeTextLabel.text = "Tap events to learn more"
-        
-        // DEBUG
-        print("Point: \(game.points) \nRounds played: \(game.roundsPlayed)")
+
     }
     
+    
+    // Check for shake
     override func motionBegan(_ motion: UIEventSubtype, with event: UIEvent?) {
         if motion == .motionShake {
+            
+                // If shake, end round with answer from checkorder()
                 endOfRound(answer:
                     game.checkOrder(of: events)
             )
@@ -234,8 +263,10 @@ class ViewController: UIViewController, GameFinishedDelegate {
         }
     }
     
+    // Initiate variable outside score for global usage
     var timer: Timer?
     
+    // Timer tick method
     func tick() {
         game.timer -= 1
         
@@ -246,6 +277,7 @@ class ViewController: UIViewController, GameFinishedDelegate {
            countdown.text = "0:0\(game.timer)"
         }
         
+        // If timer hits 0 then end game with answer from checkOrder()
         if game.timer <= 0 {
             endOfRound(answer:
                 game.checkOrder(of: events)
@@ -254,20 +286,17 @@ class ViewController: UIViewController, GameFinishedDelegate {
     }
 
     
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view, typically from a nib.
-        newRound()
-        print(events[0].url)
         
+        // Hide next round buttons
         successButton.isHidden = true
         failButton.isHidden = true
         
+        newRound()
         
         // Update buttons with highlighted state
+        // Update, finally found out how to set these in xcode instead, but I'll keep this solution.
         firstEventDown.setImage(#imageLiteral(resourceName: "down_full_selected"), for: UIControlState.highlighted)
         secondEventUp.setImage(#imageLiteral(resourceName: "up_half_selected.png"), for: UIControlState.highlighted)
         secondEventDown.setImage(#imageLiteral(resourceName: "down_half_selected.png"), for: UIControlState.highlighted)
@@ -275,7 +304,6 @@ class ViewController: UIViewController, GameFinishedDelegate {
         thirdEventDown.setImage(#imageLiteral(resourceName: "down_half_selected.png"), for: UIControlState.highlighted)
         fourthEventUp.setImage(#imageLiteral(resourceName: "up_full_selected.png"), for: UIControlState.highlighted)
         
-        updateLabels() // run update on labels
     }
 
     override func didReceiveMemoryWarning() {
